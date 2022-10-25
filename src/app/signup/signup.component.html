@@ -1,15 +1,15 @@
 <form (ngSubmit)="onRegister()" [formGroup]="registerForm" autocomplete="on">
   <div style="display: flex; justify-content: center">
     <mat-card class="form-container">
-      <mat-card-title>Register</mat-card-title>
+      <mat-card-title>가입</mat-card-title>
 
       <!-- email -->
-      <div>
+      <div class="mat-form-field">
         <mat-form-field>
-          <mat-label>Email</mat-label>
+          <mat-label>이메일</mat-label>
           <input
             matInput
-            placeholder="Ex. something@email.com"
+            placeholder="Ex. abc@abcd.com"
             formControlName="email"
             autocomplete="email"
           />
@@ -18,9 +18,9 @@
       <!-- /email -->
 
       <!-- Username -->
-      <div>
+      <div class="mat-form-field">
         <mat-form-field>
-          <mat-label>Nickname</mat-label>
+          <mat-label>닉네임</mat-label>
           <input
             matInput
             placeholder="nickname"
@@ -32,9 +32,9 @@
       <!-- /Username -->
 
       <!-- Password -->
-      <div>
+      <div class="mat-form-field">
         <mat-form-field>
-          <mat-label>Password</mat-label>
+          <mat-label>패스워드</mat-label>
           <input
             matInput
             type="password"
@@ -47,9 +47,9 @@
       <!-- /Password -->
 
       <!-- Confirm Password -->
-      <div>
+      <div class="mat-form-field">
         <mat-form-field>
-          <mat-label>Confirm Password</mat-label>
+          <mat-label>패스워드 확인</mat-label>
           <input
             matInput
             type="password"
@@ -61,18 +61,18 @@
       </div>
       <!-- Confirm Password -->
 
-      <div>
+      <div class="register">
         <button
           type="submit"
           mat-raised-button
           color="primary"
           (click)="onRegister()"
         >
-          Register
+          가입
         </button>
         <p>
-          Already have an account?
-          <a routerLink="/login">Login</a>
+          이미 계정이 있으세요?
+          <a routerLink="/login">로그인</a>
         </p>
       </div>
     </mat-card>

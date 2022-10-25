@@ -1,0 +1,53 @@
+mat-card {
+  margin: auto;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 500px;
+  align-items: center;
+}
+
+mat-card-title {
+  font-size: 2.5rem;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.register {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.register button {
+  margin: 20px 0;
+  height: 50px;
+}
+
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
+  font-size: 1.3rem;
+}
+
+.register p {
+  margin-left: auto;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+.cdk-text-field-autofill-monitored:not(:-webkit-autofill) {
+  font-size: 1.3rem;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-label {
+  font-size: 1.5rem;
+}
+
+mat-label {
+  font-size: 1.2rem;
+}
