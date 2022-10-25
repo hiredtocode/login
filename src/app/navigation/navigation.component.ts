@@ -17,8 +17,7 @@ export class NavigationComponent implements OnInit {
     });
   }
 
-  onLogout(event: Event) {
-    event.preventDefault();
+  onLogout() {
     this.authService.logout();
   }
 }

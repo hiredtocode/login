@@ -1,15 +1,15 @@
 <form (ngSubmit)="submitForm()" [formGroup]="registerForm" autocomplete="off">
   <div style="display: flex; justify-content: center">
     <mat-card class="form-container">
-      <mat-card-title>로그인하기</mat-card-title>
+      <mat-card-title>로그인</mat-card-title>
 
       <!-- Username -->
-      <div>
+      <div class="mat-form-field">
         <mat-form-field>
           <mat-label>이메일</mat-label>
           <input
             matInput
-            placeholder="Ex. some@email.com"
+            placeholder="Ex. abc@abcd.com"
             formControlName="email"
             autocomplete="email"
           />
@@ -18,7 +18,7 @@
       <!-- /Username -->
 
       <!-- Password -->
-      <div>
+      <div class="mat-form-field">
         <mat-form-field>
           <mat-label>패스워드</mat-label>
           <input
@@ -32,7 +32,7 @@
       </div>
       <!-- /Password -->
 
-      <div>
+      <div class="login">
         <button
           type="submit"
           mat-raised-button

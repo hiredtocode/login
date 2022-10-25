@@ -1,23 +1,17 @@
 <mat-toolbar color="primary">
   <div>
-    <button mat-icon-button>
-      <mat-icon class="mat-18">menu</mat-icon>
-    </button>
+    <p class="title">팔팔즈 과제</p>
   </div>
-  <div>
-    <ul class="nav-items">
-      <li><a routerLink="/dashboard">대시보드</a></li>
-    </ul>
-  </div>
-  <ng-container *ngIf="authService.isLoggedIn$ | async"
-    ><button
-      type="submit"
-      mat-raised-button
-      color="primary"
-      href="#"
-      (click)="onLogout($event)"
+  <span class="example-spacer"></span>
+
+  <ng-container *ngIf="authService.isLoggedIn$ | async">
+    <button
+      mat-stroked-button
+      color="Warn"
+      (click)="onLogout()"
+      aria-label="Example icon-button with share icon"
     >
       로그아웃
-    </button></ng-container
-  >
+    </button>
+  </ng-container>
 </mat-toolbar>
