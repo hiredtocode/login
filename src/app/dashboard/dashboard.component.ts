@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -9,7 +9,8 @@ import { AuthService } from '../auth.service';
 })
 export class DashboardComponent implements OnInit {
   postForm!: FormGroup;
-  isAuthenticated = false;
+  isAuthenticated: boolean = false;
+  errorMessage: string = '';
 
   constructor(private authService: AuthService) {}
 
