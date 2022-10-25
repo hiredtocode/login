@@ -1,12 +1,12 @@
 <form (ngSubmit)="submitForm()" [formGroup]="registerForm" autocomplete="off">
   <div style="display: flex; justify-content: center">
     <mat-card class="form-container">
-      <mat-card-title>Login</mat-card-title>
+      <mat-card-title>로그인하기</mat-card-title>
 
       <!-- Username -->
       <div>
         <mat-form-field>
-          <mat-label>Email</mat-label>
+          <mat-label>이메일</mat-label>
           <input
             matInput
             placeholder="Ex. some@email.com"
@@ -20,7 +20,7 @@
       <!-- Password -->
       <div>
         <mat-form-field>
-          <mat-label>Password</mat-label>
+          <mat-label>패스워드</mat-label>
           <input
             matInput
             type="password"
@@ -39,11 +39,11 @@
           color="primary"
           (click)="onLogin()"
         >
-          Login
+          로그인
         </button>
         <p>
-          Don't have an account?
-          <a routerLink="/register">Register</a>
+          계정이 없으신가요?
+          <a routerLink="/register">가입하기</a>
         </p>
       </div>
     </mat-card>

@@ -6,7 +6,7 @@
   </div>
   <div>
     <ul class="nav-items">
-      <li><a routerLink="/dashboard">Dashboard</a></li>
+      <li><a routerLink="/dashboard">대시보드</a></li>
     </ul>
   </div>
   <ng-container *ngIf="authService.isLoggedIn$ | async"
@@ -17,17 +17,7 @@
       href="#"
       (click)="onLogout($event)"
     >
-      Logout
+      로그아웃
     </button></ng-container
   >
-  <!-- <ng-container *ngIf="!isAuthenticated"
-    ><button
-      type="submit"
-      mat-raised-button
-      color="primary"
-      routerLink="/login"
-    >
-      Login
-    </button></ng-container
-  > -->
 </mat-toolbar>

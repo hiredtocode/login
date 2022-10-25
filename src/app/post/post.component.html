@@ -1,10 +1,10 @@
 <ng-container *ngIf="isAuthenticated">
   <mat-card>
-    <p>You're logged in</p>
+    <p>글 작성하기</p>
 
     <form [formGroup]="postForm">
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Title</mat-label>
+        <mat-label>제목</mat-label>
         <input
           matInput
           placeholder="Ex. Pizza"
@@ -14,7 +14,7 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Description</mat-label>
+        <mat-label>상세글</mat-label>
         <textarea
           matInput
           placeholder="Description"
@@ -29,7 +29,7 @@
         color="primary"
         (click)="onSubmit()"
       >
-        Submit
+        작성하기
       </button>
     </form>
   </mat-card>
