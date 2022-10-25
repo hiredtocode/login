@@ -23,8 +23,11 @@ mat-card-title {
 }
 
 .login button {
-  margin: 20px 0;
+  margin: 10px 0;
   height: 50px;
+}
+.cancel {
+  font-size: 1.3rem;
 }
 
 .mat-flat-button.mat-primary,
@@ -50,4 +53,23 @@ mat-card-title {
 
 mat-label {
   font-size: 1.2rem;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bottom button {
+  margin-left: 25px;
+  width: 150px;
+}
+
+.bottom p {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.bottom p a {
+  padding-left: 8px;
 }

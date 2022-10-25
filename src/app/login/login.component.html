@@ -41,10 +41,21 @@
         >
           로그인
         </button>
-        <p>
-          계정이 없으신가요?
-          <a routerLink="/register">가입하기</a>
-        </p>
+        <div class="bottom">
+          <p>
+            계정이 없으신가요?
+            <a routerLink="/register">가입하기</a>
+          </p>
+          <button
+            class="cancel"
+            type="submit"
+            mat-raised-button
+            color="warn"
+            (click)="onLogin()"
+          >
+            취소
+          </button>
+        </div>
       </div>
     </mat-card>
   </div>
