@@ -24,7 +24,6 @@ export class Guard implements CanActivate {
     | UrlTree {
     return this.authService.isLoggedIn$.pipe(
       tap((isLoggedIn) => {
-        console.log('isLoggedIn', isLoggedIn);
         !isLoggedIn ? this.router.navigate(['dashboard']) : null;
       })
     );
