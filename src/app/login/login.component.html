@@ -1,1 +1,69 @@
-<p>login works!</p>
+<mat-card>
+  <mat-card-content>
+    <div class="header">
+      <h2>Please Login / Register</h2>
+    </div>
+    <mat-tab-group>
+      <mat-tab class="matTabHeader" label="Login">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            placeholder="JohnDoe@email.com"
+            value=""
+            [(ngModel)]="email"
+          /><mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input
+            type="password"
+            matInput
+            placeholder="password"
+            [(ngModel)]="password"
+          />
+        </mat-form-field>
+        <button mat-stroked-button color="primary" (click)="login()">
+          Login
+        </button>
+      </mat-tab>
+
+      <mat-tab class="matTabHeader" label="Register">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            placeholder="JohnDoe@email.com"
+            value=""
+            [(ngModel)]="register_email"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input
+            type="password"
+            matInput
+            placeholder="password"
+            [(ngModel)]="register_password"
+          />
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Confirm Password</mat-label>
+          <input
+            type="password"
+            matInput
+            placeholder="password"
+            [(ngModel)]="confirm_password"
+          />
+        </mat-form-field>
+        <button mat-stroked-button color="primary" (click)="register()">
+          Register
+        </button>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>
