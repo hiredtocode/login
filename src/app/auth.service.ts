@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,11 +19,7 @@ export class AuthService {
     return localStorage.getItem(this.TOKEN_NAME);
   }
 
-  constructor(
-    private apiService: ApiService,
-    private http: HttpClient,
-    private router: Router
-  ) {
+  constructor(private http: HttpClient, private router: Router) {
     this._isLoggedIn$.next(!!this.token);
   }
 
@@ -43,6 +38,12 @@ export class AuthService {
 
   logout() {
     this._isLoggedIn$.next(false);
-    this.router.navigate(['login']);
+    localStorage.clear();
+    this.router.navigate(['dashboard']);
+  }
+
+  post() {
+    let token = localStorage.getItem(this.TOKEN_NAME);
+    if (token === null) this.router.navigate(['login']);
   }
 }

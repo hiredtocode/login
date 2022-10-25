@@ -8,11 +8,17 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) {}
+  isAuthenticated = false;
 
-  ngOnInit(): void {}
+  constructor(private authService: AuthService) {}
 
-  post() {
-    console.log('post clicked');
+  ngOnInit(): void {
+    this.authService.isLoggedIn$.subscribe((user) => {
+      this.isAuthenticated = user ? true : false;
+    });
+  }
+
+  onPost() {
+    this.authService.post();
   }
 }

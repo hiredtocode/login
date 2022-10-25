@@ -28,9 +28,9 @@ export class LoginComponent {
       password: ['asdf', Validators.required],
     });
 
-    if (this.authService.isLoggedIn$) {
-      this.router.navigate(['dashboard']);
-    }
+    // if (this.authService.isLoggedIn$) {
+    //   this.router.navigate(['dashboard']);
+    // }
   }
   onLogin() {
     if (this.registerForm.invalid) {

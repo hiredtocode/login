@@ -16,7 +16,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { AngularMaterialModule } from './angular-material/angular-material.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProductsComponent } from './products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -26,7 +25,6 @@ import { HttpClientModule } from '@angular/common/http';
     SignupComponent,
     NavigationComponent,
     DashboardComponent,
-    ProductsComponent,
   ],
   imports: [
     BrowserModule,
