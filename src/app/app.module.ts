@@ -17,6 +17,7 @@ import { AngularMaterialModule } from './angular-material/angular-material.compo
 import { NavigationComponent } from './navigation/navigation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     SignupComponent,
     NavigationComponent,
     DashboardComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,

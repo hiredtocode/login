@@ -1,0 +1,26 @@
+<ng-container *ngIf="isAuthenticated">
+  <p>You're logged in</p>
+
+  <form [formGroup]="postForm">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Title</mat-label>
+      <input
+        matInput
+        placeholder="Ex. Pizza"
+        value="Sushi"
+        formControlName="title"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea
+        matInput
+        placeholder="Description"
+        formControlName="longDescription"
+        cdkTextareaAutosize="true"
+        cdkAutosizeMinRow="2"
+      ></textarea>
+    </mat-form-field>
+  </form>
+</ng-container>

@@ -27,11 +27,8 @@ export class LoginComponent {
       email: ['12r12r@mail.com', Validators.required],
       password: ['asdf', Validators.required],
     });
-
-    // if (this.authService.isLoggedIn$) {
-    //   this.router.navigate(['dashboard']);
-    // }
   }
+
   onLogin() {
     if (this.registerForm.invalid) {
       return;

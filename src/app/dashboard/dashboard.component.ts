@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  postForm!: FormGroup;
   isAuthenticated = false;
 
   constructor(private authService: AuthService) {}
@@ -20,5 +21,8 @@ export class DashboardComponent implements OnInit {
 
   onPost() {
     this.authService.post();
+  }
+  onSubmit() {
+    console.log('onSubmit pressed');
   }
 }

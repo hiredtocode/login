@@ -44,6 +44,8 @@ export class AuthService {
 
   post() {
     let token = localStorage.getItem(this.TOKEN_NAME);
-    if (token === null) this.router.navigate(['login']);
+    token === null
+      ? this.router.navigate(['login'])
+      : this.router.navigate(['post']);
   }
 }
