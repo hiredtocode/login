@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
-  <div>
+  <button routerLink="dashboard" mat-stroked-button>
     <p class="title">팔팔즈 과제</p>
-  </div>
+  </button>
   <span class="example-spacer"></span>
 
   <ng-container *ngIf="authService.isLoggedIn$ | async">
