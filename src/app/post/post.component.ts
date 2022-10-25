@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { title } from 'process';
 import { AuthService } from '../auth.service';
 
 const SAMPLE_TEXT =
@@ -13,6 +14,9 @@ const SAMPLE_TEXT =
 export class PostComponent implements OnInit {
   postForm!: FormGroup;
   isAuthenticated = false;
+  router: any;
+  title: string = '';
+  content: string = '';
 
   constructor(
     private authService: AuthService,
@@ -27,20 +31,41 @@ export class PostComponent implements OnInit {
           Validators.maxLength(20),
         ],
       ],
-      longDescription: [
-        SAMPLE_TEXT,
-        [Validators.required, Validators.minLength(3)],
-      ],
+      content: [SAMPLE_TEXT, [Validators.required, Validators.minLength(3)]],
     });
   }
 
   ngOnInit(): void {
     this.authService.isLoggedIn$.subscribe((user) => {
       this.isAuthenticated = user ? true : false;
+      let check = localStorage.getItem('token');
+      if (check) {
+        this.isAuthenticated = true;
+      } else {
+        this.isAuthenticated = false;
+        this.router.navigate(['dashboard']);
+      }
+    });
+
+    this.postForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      content: ['', Validators.required],
     });
   }
 
-  onPost() {
-    this.authService.post();
+  onSubmit() {
+    this.authService.submit(this.postForm.value).subscribe({
+      next: (response) => {
+        console.log('response', response);
+        this.title = response.title;
+        this.content = response.content;
+
+        console.log('this.title', this.title);
+        console.log('this.content', this.content);
+      },
+      error: (error) => {
+        console.log('error', error.message);
+      },
+    });
   }
 }

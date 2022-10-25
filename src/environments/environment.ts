@@ -3,8 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
 };
+
+export const baseUrl: string =
+  'http://ec2-3-37-207-126.ap-northeast-2.compute.amazonaws.com:9999/api/users/';
+export const postUrl: string =
+  'http://ec2-3-37-207-126.ap-northeast-2.compute.amazonaws.com:9999/api/';
 
 /*
  * For easier debugging in development mode, you can import the following file

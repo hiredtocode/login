@@ -16,8 +16,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { AngularMaterialModule } from './angular-material/angular-material.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PostComponent } from './post/post.component';
+import { InterceptorService } from './service/interceptor.service';
+// import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { PostComponent } from './post/post.component';
     PostComponent,
   ],
   imports: [
+    // ModalComponent,
     BrowserModule,
     AngularMaterialModule,
     AppRoutingModule,
@@ -42,7 +45,9 @@ import { PostComponent } from './post/post.component';
     MatTabsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

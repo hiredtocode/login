@@ -1,34 +1,33 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { baseUrl, postUrl } from '../environments/environment';
+import { PostComponent } from './post/post.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl: string =
-    'http://ec2-3-37-207-126.ap-northeast-2.compute.amazonaws.com:9999/api/users/';
-
   private readonly TOKEN_NAME = 'token';
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this._isLoggedIn$.asObservable();
 
-  get token() {
+  constructor(private http: HttpClient, private router: Router) {
+    // this._isLoggedIn$.next(!!this.getToken);
+  }
+
+  getToken() {
     return localStorage.getItem(this.TOKEN_NAME);
   }
 
-  constructor(private http: HttpClient, private router: Router) {
-    this._isLoggedIn$.next(!!this.token);
-  }
-
   register(userObj: any) {
-    return this.http.post<any>(`${this.baseUrl}register`, userObj);
+    return this.http.post<any>(`${baseUrl}register`, userObj);
   }
 
   login(loginObj: any) {
-    return this.http.post<any>(`${this.baseUrl}login`, loginObj).pipe(
+    return this.http.post<any>(`${baseUrl}login`, loginObj).pipe(
       tap((response: any) => {
         localStorage.setItem(this.TOKEN_NAME, response.response.access_token);
         this._isLoggedIn$.next(true);
@@ -47,5 +46,15 @@ export class AuthService {
     token === null
       ? this.router.navigate(['login'])
       : this.router.navigate(['post']);
+  }
+
+  submit(postObj: any) {
+    let token = localStorage.getItem(this.TOKEN_NAME);
+    let head_obj = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    let result = this.http.post<any>(`${postUrl}posts`, postObj, {
+      headers: head_obj,
+    });
+    this.router.navigate(['post']);
+    return result;
   }
 }

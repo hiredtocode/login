@@ -10,6 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 // For components using angular-animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -23,8 +24,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatIconModule,
     MatMenuModule,
     MatTableModule,
+    MatDialogModule,
   ],
   exports: [
+    MatDialogModule,
     MatInputModule,
     MatCardModule,
     MatButtonModule,
