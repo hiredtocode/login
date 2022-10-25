@@ -1,1 +1,80 @@
-<p>signup works!</p>
+<form (ngSubmit)="onRegister()" [formGroup]="registerForm" autocomplete="on">
+  <div style="display: flex; justify-content: center">
+    <mat-card class="form-container">
+      <mat-card-title>Register</mat-card-title>
+
+      <!-- email -->
+      <div>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="Ex. something@email.com"
+            formControlName="email"
+            autocomplete="email"
+          />
+        </mat-form-field>
+      </div>
+      <!-- /email -->
+
+      <!-- Username -->
+      <div>
+        <mat-form-field>
+          <mat-label>Nickname</mat-label>
+          <input
+            matInput
+            placeholder="nickname"
+            formControlName="nickname"
+            autocomplete="name"
+          />
+        </mat-form-field>
+      </div>
+      <!-- /Username -->
+
+      <!-- Password -->
+      <div>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            placeholder="Ex. s3c3tP@ss"
+            formControlName="password"
+            autocomplete="new-password"
+          />
+        </mat-form-field>
+      </div>
+      <!-- /Password -->
+
+      <!-- Confirm Password -->
+      <div>
+        <mat-form-field>
+          <mat-label>Confirm Password</mat-label>
+          <input
+            matInput
+            type="password"
+            placeholder="Ex. s3c3tP@ss"
+            formControlName="confirmPassword"
+            autocomplete="new-password"
+          />
+        </mat-form-field>
+      </div>
+      <!-- Confirm Password -->
+
+      <div>
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          (click)="onRegister()"
+        >
+          Register
+        </button>
+        <p>
+          Already have an account?
+          <a routerLink="/login">Login</a>
+        </p>
+      </div>
+    </mat-card>
+  </div>
+</form>

@@ -13,11 +13,24 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { AngularMaterialModule } from './angular-material/angular-material.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProductsComponent } from './products/products.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, SignupComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    SignupComponent,
+    NavigationComponent,
+    DashboardComponent,
+    ProductsComponent,
+  ],
   imports: [
     BrowserModule,
+    AngularMaterialModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
@@ -27,6 +40,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     FormsModule,
     MatIconModule,
     MatTabsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

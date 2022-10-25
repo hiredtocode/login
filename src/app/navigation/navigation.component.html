@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+  <div>
+    <button mat-icon-button>
+      <mat-icon class="mat-18">menu</mat-icon>
+    </button>
+  </div>
+  <div>
+    <ul class="nav-items">
+      <li><a routerLink="/dashboard">Dashboard</a></li>
+      <li><a routerLink="/products">Products</a></li>
+    </ul>
+  </div>
+  <ng-container *ngIf="authService.isLoggedIn$ | async"
+    ><button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      href="#"
+      (click)="onLogout($event)"
+    >
+      Logout
+    </button></ng-container
+  >
+</mat-toolbar>

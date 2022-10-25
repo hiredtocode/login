@@ -1,69 +1,51 @@
-<mat-card>
-  <mat-card-content>
-    <div class="header">
-      <h2>Please Login / Register</h2>
-    </div>
-    <mat-tab-group>
-      <mat-tab class="matTabHeader" label="Login">
-        <mat-form-field class="example-full-width" appearance="fill">
+<form (ngSubmit)="submitForm()" [formGroup]="registerForm" autocomplete="off">
+  <div style="display: flex; justify-content: center">
+    <mat-card class="form-container">
+      <mat-card-title>Login</mat-card-title>
+
+      <!-- Username -->
+      <div>
+        <mat-form-field>
           <mat-label>Email</mat-label>
           <input
-            type="email"
             matInput
-            placeholder="JohnDoe@email.com"
-            value=""
-            [(ngModel)]="email"
-          /><mat-icon matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Password</mat-label>
-          <input
-            type="password"
-            matInput
-            placeholder="password"
-            [(ngModel)]="password"
+            placeholder="Ex. some@email.com"
+            formControlName="email"
+            autocomplete="email"
           />
         </mat-form-field>
-        <button mat-stroked-button color="primary" (click)="login()">
+      </div>
+      <!-- /Username -->
+
+      <!-- Password -->
+      <div>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            placeholder="Ex. s3c3tP@ss"
+            formControlName="password"
+            autocomplete="password"
+          />
+        </mat-form-field>
+      </div>
+      <!-- /Password -->
+
+      <div>
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          (click)="onLogin()"
+        >
           Login
         </button>
-      </mat-tab>
-
-      <mat-tab class="matTabHeader" label="Register">
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Email</mat-label>
-          <input
-            type="email"
-            matInput
-            placeholder="JohnDoe@email.com"
-            value=""
-            [(ngModel)]="register_email"
-          />
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Password</mat-label>
-          <input
-            type="password"
-            matInput
-            placeholder="password"
-            [(ngModel)]="register_password"
-          />
-        </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Confirm Password</mat-label>
-          <input
-            type="password"
-            matInput
-            placeholder="password"
-            [(ngModel)]="confirm_password"
-          />
-        </mat-form-field>
-        <button mat-stroked-button color="primary" (click)="register()">
-          Register
-        </button>
-      </mat-tab>
-    </mat-tab-group>
-  </mat-card-content>
-</mat-card>
+        <p>
+          Don't have an account?
+          <a routerLink="/register">Register</a>
+        </p>
+      </div>
+    </mat-card>
+  </div>
+</form>
