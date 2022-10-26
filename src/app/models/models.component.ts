@@ -1,4 +1,6 @@
-export interface ProductModel {
+export interface PostModel {
   id: number;
-  name: string;
+  title: string;
+  content: string;
+  createdAt: string;
 }

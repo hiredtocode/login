@@ -19,7 +19,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PostComponent } from './post/post.component';
 import { InterceptorService } from './service/interceptor.service';
-// import { ModalComponent } from './modal/modal.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { SnackBarComponentComponent } from './snack-bar-component/snack-bar-component.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +30,9 @@ import { InterceptorService } from './service/interceptor.service';
     NavigationComponent,
     DashboardComponent,
     PostComponent,
+    SnackBarComponentComponent,
   ],
   imports: [
-    // ModalComponent,
     BrowserModule,
     AngularMaterialModule,
     AppRoutingModule,
@@ -44,6 +45,7 @@ import { InterceptorService } from './service/interceptor.service';
     MatIconModule,
     MatTabsModule,
     HttpClientModule,
+    MatFormFieldModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },

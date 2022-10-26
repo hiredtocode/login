@@ -1,10 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { baseUrl, postUrl } from '../environments/environment';
-import { PostComponent } from './post/post.component';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +13,10 @@ export class AuthService {
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this._isLoggedIn$.asObservable();
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+    const token = this.getToken();
+    this._isLoggedIn$.next(!!token);
+  }
 
   getToken() {
     return localStorage.getItem(this.TOKEN_NAME);

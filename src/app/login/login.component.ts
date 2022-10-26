@@ -24,8 +24,11 @@ export class LoginComponent {
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      email: ['12r12r@mail.com', Validators.required],
-      password: ['asdf', Validators.required],
+      email: new FormControl('', Validators.compose([Validators.email])),
+      password: new FormControl(
+        '',
+        Validators.compose([Validators.required, Validators.minLength(4)])
+      ),
     });
   }
 
@@ -45,4 +48,7 @@ export class LoginComponent {
   }
 
   submitForm() {}
+  cancel() {
+    this.router.navigate(['dashboard']);
+  }
 }

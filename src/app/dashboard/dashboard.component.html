@@ -1,5 +1,10 @@
-<button mat-raised-button color="primary" (click)="onPost()">글작성</button>
-
-<ng-container *ngIf="!isAuthenticated">
-  <button mat-raised-button color="primary" routerLink="/login">로그인</button>
-</ng-container>
+<div class="main-container">
+  <button mat-raised-button color="primary" (click)="onPost()">
+    <span> 메모작성 </span>
+  </button>
+  <ng-container *ngIf="!isAuthenticated">
+    <button mat-raised-button color="primary" routerLink="/login">
+      <span> 로그인</span>
+    </button>
+  </ng-container>
+</div>

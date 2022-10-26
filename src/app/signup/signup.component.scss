@@ -1,5 +1,6 @@
 mat-card {
-  margin: auto;
+  margin: 5% auto;
+
   min-width: 400px;
   display: flex;
   flex-direction: column;
@@ -23,7 +24,7 @@ mat-card-title {
 }
 
 .register button {
-  margin: 20px 0;
+  margin: 10px 0;
   height: 50px;
 }
 
@@ -50,4 +51,25 @@ mat-card-title {
 
 mat-label {
   font-size: 1.2rem;
+}
+button:hover {
+  opacity: 0.7;
+  transition: all 0.5s;
+}
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bottom button {
+  margin-left: 25px;
+  width: 150px;
+}
+
+.cancel {
+  font-size: 1.3rem;
+}
+
+.errorMessage {
+  color: red;
 }

@@ -1,36 +1,66 @@
-<ng-container *ngIf="isAuthenticated">
+<main class="container">
   <mat-card class="form-container">
-    <p>글 작성하기</p>
-
+    <mat-card-title>메모</mat-card-title>
     <form [formGroup]="postForm">
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>제목</mat-label>
-        <input
-          matInput
-          placeholder="Ex. Pizza"
-          value="Sushi"
-          formControlName="title"
-        />
-      </mat-form-field>
+      <div class="mat-form-field">
+        <mat-form-field>
+          <mat-label>제목</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Ex. Pizza"
+            value="Sushi"
+            formControlName="title"
+          />
+        </mat-form-field>
+      </div>
+      <div class="mat-form-field">
+        <mat-form-field>
+          <mat-label>상세글</mat-label>
+          <textarea
+            matInput
+            type="text"
+            placeholder="Description"
+            formControlName="content"
+            cdkTextareaAutosize="true"
+          ></textarea>
+        </mat-form-field>
+      </div>
 
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>상세글</mat-label>
-        <textarea
-          matInput
-          placeholder="Description"
-          formControlName="content"
-          cdkTextareaAutosize="true"
-          cdkAutosizeMinRow="2"
-        ></textarea>
-      </mat-form-field>
-      <button
-        type="submit"
-        mat-raised-button
-        color="primary"
-        (click)="onSubmit()"
-      >
-        작성하기
-      </button>
+      <div class="register">
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          (click)="onSubmit()"
+          id="post"
+        >
+          잠시 저장
+        </button>
+        <button
+          type="submit"
+          mat-raised-button
+          color="warn"
+          (click)="onCancel()"
+          id="cancel"
+        >
+          뒤로가기
+        </button>
+      </div>
     </form>
   </mat-card>
-</ng-container>
+  <section class="post">
+    <div class="container">
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let post of posts">
+            <td>
+              {{ post.title }}
+            </td>
+            <td>{{ post.content }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>

@@ -9,10 +9,24 @@
           <mat-label>이메일</mat-label>
           <input
             matInput
+            type="email"
+            name="email"
+            ngModel
+            email="true"
             placeholder="Ex. abc@abcd.com"
             formControlName="email"
             autocomplete="email"
           />
+          <span
+            *ngIf="error['email'].getError('required') != null"
+            class="errorMessage"
+            >로그인 이메일을 써주세요</span
+          >
+          <span
+            *ngIf="error['email'].getError('email') != null"
+            class="errorMessage"
+            >이메일 포맷이 아닙니다</span
+          >
         </mat-form-field>
       </div>
       <!-- /email -->
@@ -23,6 +37,8 @@
           <mat-label>닉네임</mat-label>
           <input
             matInput
+            type="text"
+            ngModel
             placeholder="nickname"
             formControlName="nickname"
             autocomplete="name"
@@ -38,10 +54,21 @@
           <input
             matInput
             type="password"
+            ngModel
             placeholder="Ex. s3c3tP@ss"
             formControlName="password"
             autocomplete="new-password"
           />
+          <span
+            *ngIf="error['confirmPassword'].getError('required') != null"
+            class="errorMessage"
+            >최소 4자 패스워드가 필요합니다</span
+          >
+          <span
+            *ngIf="error['confirmPassword'].getError('mustMatch') != null"
+            class="errorMessage"
+            >패스워드가 일치 하지 않습니다. 확인 해 주시길 바랍니다.</span
+          >
         </mat-form-field>
       </div>
       <!-- /Password -->
@@ -53,10 +80,15 @@
           <input
             matInput
             type="password"
+            ngModel
             placeholder="Ex. s3c3tP@ss"
             formControlName="confirmPassword"
             autocomplete="new-password"
-          />
+          /><span
+            *ngIf="error['confirmPassword'].getError('mustMatch') != null"
+            class="errorMessage"
+            >패스워드가 일치 하지 않습니다. 확인 해 주시길 바랍니다.</span
+          >
         </mat-form-field>
       </div>
       <!-- Confirm Password -->
@@ -70,10 +102,21 @@
         >
           가입
         </button>
-        <p>
-          이미 계정이 있으세요?
-          <a routerLink="/login">로그인</a>
-        </p>
+        <div class="bottom">
+          <p>
+            이미 계정이 있으세요?
+            <a routerLink="/login">로그인</a>
+          </p>
+          <button
+            class="cancel"
+            type="submit"
+            mat-raised-button
+            color="warn"
+            (click)="cancel()"
+          >
+            취소
+          </button>
+        </div>
       </div>
     </mat-card>
   </div>

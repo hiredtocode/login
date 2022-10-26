@@ -23,12 +23,26 @@ export class SignupComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.registerForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      nickname: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
-    });
+    this.registerForm = this.formBuilder.group(
+      {
+        email: new FormControl('', Validators.compose([Validators.email])),
+        nickname: new FormControl(
+          '',
+          Validators.compose([Validators.required, Validators.minLength(6)])
+        ),
+        password: new FormControl(
+          '',
+          Validators.compose([Validators.required, Validators.minLength(4)])
+        ),
+        confirmPassword: new FormControl(
+          '',
+          Validators.compose([Validators.required, Validators.minLength(4)])
+        ),
+      },
+      {
+        validators: this.mustMatch('password', 'confirmPassword'),
+      }
+    );
   }
 
   onRegister() {
@@ -47,5 +61,32 @@ export class SignupComponent implements OnInit {
         console.log('error', error.message);
       },
     });
+  }
+  cancel() {
+    this.router.navigate(['dashboard']);
+  }
+
+  get error() {
+    return this.registerForm.controls;
+  }
+
+  mustMatch(password: any, confirmPassword: any) {
+    return (formGroup: FormGroup) => {
+      const passwordControl = formGroup.controls[password];
+      const confirmPasswordControl = formGroup.controls[confirmPassword];
+
+      if (
+        confirmPasswordControl.errors &&
+        !confirmPasswordControl.errors['mustMatch']
+      ) {
+        return;
+      }
+
+      if (passwordControl.value !== confirmPasswordControl.value) {
+        confirmPasswordControl.setErrors({ mustMatch: true });
+      } else {
+        confirmPasswordControl.setErrors(null);
+      }
+    };
   }
 }

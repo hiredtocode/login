@@ -14,4 +14,13 @@ mat-toolbar {
 .title {
   margin: auto;
   font-size: 1.3rem;
+  align-items: center;
+}
+
+#logout {
+  font-size: 1.6em;
+}
+
+#logout:hover {
+  color: rgb(224, 224, 224);
 }
