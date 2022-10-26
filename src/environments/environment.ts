@@ -19,3 +19,20 @@ export const postUrl: string =
  * on performance if an error is thrown.
  */
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
+// Import the functions you need from the SDKs you need
+import { initializeApp } from 'firebase/app';
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: 'AIzaSyD7NzO4DsEjRh_PULTtYD2hWjosXU4K-bc',
+  authDomain: 'palpals.firebaseapp.com',
+  projectId: 'palpals',
+  storageBucket: 'palpals.appspot.com',
+  messagingSenderId: '485543432117',
+  appId: '1:485543432117:web:faf7d8cf477a66401053fc',
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
